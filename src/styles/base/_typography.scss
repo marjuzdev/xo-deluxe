@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./assets/fonts/Orbitron-Regular.woff2') format('woff2'),
+        url('./assets/fonts/Orbitron-Regular.woff') format('woff')
+        url('./assets/fonts/Orbitron-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BespokeStencil-Variable';
+    src: url('./assets/fonts/BespokeStencil-Variable.woff2') format('woff2'),
+         url('./assets/fonts/BespokeStencil-Variable.woff') format('woff'),
+         url('./assets/fonts/BespokeStencil-Variable.ttf') format('truetype');
+    font-weight: 300 800;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'BespokeStencil-VariableItalic';
+    src: url('./assets/fonts/BespokeStencil-VariableItalic.woff2') format('woff2'),
+         url('./assets/fonts/BespokeStencil-VariableItalic.woff') format('woff'),
+         url('./assets/fonts/BespokeStencil-VariableItalic.ttf') format('truetype');
+    font-weight: 300 800;
+    font-display: swap;
+    font-style: italic;
+  }
+  

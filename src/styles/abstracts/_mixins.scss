@@ -1,0 +1,97 @@
+// Media query mixins
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == xs {
+      @media (max-width: 480px) { @content; }
+    } @else if $breakpoint == sm {
+      @media (max-width: 600px) { @content; }
+    } @else if $breakpoint == md {
+      @media (max-width: 768px) { @content; }
+    } @else if $breakpoint == lg {
+      @media (max-width: 992px) { @content; }
+    } @else if $breakpoint == xl {
+      @media (max-width: 1200px) { @content; }
+    }
+  }
+  
+  // Flexbox mixins
+  @mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+  }
+  
+  // Typography mixins
+  @mixin text-style($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+  }
+  
+  // Animation mixins
+  @mixin keyframes($name) {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+  
+  @mixin animation($name, $duration, $timing-function, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: forwards) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing-function;
+    animation-delay: $delay;
+    animation-iteration-count: $iteration-count;
+    animation-direction: $direction;
+    animation-fill-mode: $fill-mode;
+  }
+  
+  // Box shadow mixin
+  @mixin box-shadow($shadow...) {
+    box-shadow: $shadow;
+  }
+  
+  // Transition mixin
+  @mixin transition($property, $duration, $timing-function, $delay: 0s) {
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timing-function;
+    transition-delay: $delay;
+  }
+  
+  // Button mixin
+  @mixin button-style($bg-color, $text-color, $hover-bg-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    border-radius: $border-radius-md;
+    padding: $spacing-md $spacing-lg;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($bg-color, 0.3);
+    }
+  }
+  
+  // Gradient text mixin
+  @mixin gradient-text($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  // Glass effect mixin
+  @mixin glass-effect($bg-opacity: 0.2, $blur: 10px, $border-color: rgba(255, 255, 255, 0.1)) {
+    background-color: rgba(255, 255, 255, $bg-opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    border: 1px solid $border-color;
+  }

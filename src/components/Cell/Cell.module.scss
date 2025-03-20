@@ -1,0 +1,112 @@
+.cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 15vh;
+  min-width: 15vh;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(245, 245, 245);
+  }
+
+  /* Vertical borders (except in the last column) */
+  &:not(:last-child)::after {
+    width: 1px;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
+
+  /* Horizontal borders (except for the last row) */
+  &:not(.lastRow).cell::before {
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+  }
+  
+
+
+  &.winning,
+  &.winning.lastMove {
+    background-color: #2ecc7163;
+  }
+
+  &.lastMove {
+    background-color: rgba(255, 235, 59, 0.1);
+  }
+}
+
+.xMark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oMark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xSvg,
+.oSvg {
+  width: 8vh;
+  height: 8vh;
+}
+
+// Animaciones para X
+.xPath1,
+.xPath2 {
+  stroke: whitesmoke;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.animate .xPath1 {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  animation: drawLine 0.4s ease forwards;
+}
+
+.animate .xPath2 {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  animation: drawLine 0.4s ease 0.2s forwards;
+}
+
+// Animaciones para O
+.oCircle {
+  stroke: whitesmoke;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.animate .oCircle {
+  stroke-dasharray: 190;
+  stroke-dashoffset: 190;
+  animation: drawCircle 0.6s ease forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
