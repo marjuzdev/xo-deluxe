@@ -16,11 +16,10 @@ interface GameContextProps {
 export const GameContext = createContext<GameContextProps>({} as GameContextProps);
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
+  
   const [gameState, setGameState] = useState<GameState>(INITIAL_GAME_STATE);
   const [aiThinking, setAiThinking] = useState(false);
   
-
-
   // Check for draw
   const checkForDraw = (board: GameBoard): boolean => {
     return board.every((row) => row.every((cell) => cell !== null));
