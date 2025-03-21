@@ -2,7 +2,8 @@ import { useMemo } from 'react';
 import Cell from '../Cell/Cell';
 import { useGame } from '../../hooks/useGame';
 import styles from './Board.module.scss';
-import { checkWinner } from '../../utils/ai/minimax';
+import { checkWinner } from '../../utils/game';
+
 
 const Board: React.FC = () => {
 
@@ -12,7 +13,7 @@ const Board: React.FC = () => {
   // Calculate winning cells
   const winningCells = useMemo(() => {
     if (!winner) return [];
-    return checkWinner(board, winner)
+    return checkWinner(board, winner)['game'] as any[]
   }, [winner, board]);
 
   // Check if a cell is in the winning combination

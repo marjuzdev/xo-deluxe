@@ -1,8 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { AIDifficulty, GameBoard, GameConfiguration, GameState, PlayerMark } from '../models/game';
-import { INITIAL_GAME_STATE, WINNING_COMBINATIONS } from '../constants/game';
-import { checkWinner, getAIMove } from '../utils/ai/minimax';
+import { AIDifficulty, GameBoard, GameConfiguration, GameState } from '../models/game';
+import { INITIAL_GAME_STATE } from '../constants/game';
+import { getAIMove } from '../utils/ai/minimax';
 import { cloneDeep } from '../utils/helpers';
+import { checkWinner } from '../utils/game';
 
 interface GameContextProps {
   gameState: GameState;
@@ -18,30 +19,8 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
   const [gameState, setGameState] = useState<GameState>(INITIAL_GAME_STATE);
   const [aiThinking, setAiThinking] = useState(false);
   
-  function checkWinner(board: GameBoard, player: PlayerMark): any {
-    for (const combination of WINNING_COMBINATIONS) {
-      const [[row1, col1], [row2, col2], [row3, col3]] = combination;
-      if (
-        board[row1][col1] === player &&
-        board[row2][col2] === player &&
-        board[row3][col3] === player
-      ) {
-        return {
-          game:[
-            { row: row1, col: col1 },
-            { row: row2, col: col2 },
-            { row: row3, col: col3 }
-          ],
-          winner: player
-        };
-      }
-    }
-    return [];
-  }
-  
 
 
-  
   // Check for draw
   const checkForDraw = (board: GameBoard): boolean => {
     return board.every((row) => row.every((cell) => cell !== null));
