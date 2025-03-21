@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { AIDifficulty, GameBoard, GameConfiguration, GameState, PlayerMark } from '../models/game';
 import { INITIAL_GAME_STATE, WINNING_COMBINATIONS } from '../constants/game';
-import { getAIMove } from '../utils/ai/minimax';
+import { checkWinner, getAIMove } from '../utils/ai/minimax';
 import { cloneDeep } from '../utils/helpers';
 
 interface GameContextProps {
@@ -18,23 +18,30 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
   const [gameState, setGameState] = useState<GameState>(INITIAL_GAME_STATE);
   const [aiThinking, setAiThinking] = useState(false);
   
-  // Check for winner
-  const checkForWinner = (board: GameBoard): PlayerMark => {
+  function checkWinner(board: GameBoard, player: PlayerMark): any {
     for (const combination of WINNING_COMBINATIONS) {
       const [[row1, col1], [row2, col2], [row3, col3]] = combination;
       if (
-        board[row1][col1] 
-        &&
-        board[row1][col1] === board[row2][col2] 
-        && 
-        board[row1][col1] === board[row3][col3]
+        board[row1][col1] === player &&
+        board[row2][col2] === player &&
+        board[row3][col3] === player
       ) {
-        return board[row1][col1];
+        return {
+          game:[
+            { row: row1, col: col1 },
+            { row: row2, col: col2 },
+            { row: row3, col: col3 }
+          ],
+          winner: player
+        };
       }
     }
-    return null;
-  };
+    return [];
+  }
+  
 
+
+  
   // Check for draw
   const checkForDraw = (board: GameBoard): boolean => {
     return board.every((row) => row.every((cell) => cell !== null));
@@ -42,6 +49,7 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
 
   // Make move
   const makeMove = (row: number, col: number) => {
+
     if (
       gameState.board[row][col] !== null ||
       gameState.isGameOver ||
@@ -57,11 +65,12 @@ export const GameProvider = ({ children }: { children: ReactNode }) => {
 
     // Update history
     const newHistory = [...gameState.moveHistory, cloneDeep(newBoard)];
-
     // Check if there's a winner or draw
-    const winner = checkForWinner(newBoard);
+    const winner = checkWinner(newBoard, newBoard[row][col])['winner'];
+
     const isDraw = !winner && checkForDraw(newBoard);
     const isGameOver = !!winner || isDraw;
+
 
     // Update game state
     setGameState({

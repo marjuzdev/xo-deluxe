@@ -1,4 +1,4 @@
-import { AIDifficulty, GameBoard, GameMode, GameState, PlayerMark } from '../models/game';
+import { AIDifficulty, GameBoard, GameMode, GameState } from '../models/game';
 
 
 export const BOARD_SIZE = 3;
