@@ -1,15 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { PlayerMark } from '@models/game';
-import { useGame } from '@hooks/useGame';
-import styles from './Cell.module.scss';
 
-interface CellProps {
-  value: PlayerMark;
-  rowIndex: number;
-  onClick: () => void;
-  isWinningCell: boolean;
-  isLastMove: boolean;
-}
+import { useGame } from '@hooks/useGame';
+
+import styles from './Cell.module.scss';
+import { CellProps } from './Cell.interface';
+
 
 const Cell: React.FC<CellProps> = ({ 
   value,
