@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
-import { useGame } from '../../hooks/useGame';
+import React from 'react';
+
+import { useGame } from '@hooks/useGame';
+import { nameMappingDifficulty } from '@constants/game';
+
 import styles from './GameInfo.module.scss';
-import { nameMappingDifficulty } from "../../models/game"
+
 
 const GameInfo: React.FC = () => {
   const { gameState } = useGame();

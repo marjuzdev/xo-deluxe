@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
-import Cell from '../Cell/Cell';
-import { useGame } from '../../hooks/useGame';
-import styles from './Board.module.scss';
-import { checkWinner } from '../../utils/game';
 
+import Cell from '@components/Cell/Cell';
+import { useGame } from '@hooks/useGame';
+import { checkWinner } from '@utils/game';
+
+import styles from './Board.module.scss';
 
 const Board: React.FC = () => {
 

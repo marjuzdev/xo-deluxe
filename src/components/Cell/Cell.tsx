@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { PlayerMark } from '../../models/game';
+import { PlayerMark } from '@models/game';
+import { useGame } from '@hooks/useGame';
 import styles from './Cell.module.scss';
-import { useGame } from '../../hooks/useGame';
-
 
 interface CellProps {
   value: PlayerMark;

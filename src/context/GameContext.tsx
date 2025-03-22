@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { AIDifficulty, GameBoard, GameConfiguration, GameState } from '../models/game';
-import { INITIAL_GAME_STATE } from '../constants/game';
-import { getAIMove } from '../utils/ai/minimax';
-import { cloneDeep } from '../utils/helpers';
-import { checkWinner } from '../utils/game';
+import { AIDifficulty, GameBoard, GameConfiguration, GameState } from '@models/game';
+import { INITIAL_GAME_STATE } from '@constants/game';
+import { getAIMove } from '@utils/ai/minimax';
+import { cloneDeep } from '@utils/helpers';
+import { checkWinner } from '@utils/game';
 
 interface GameContextProps {
   gameState: GameState;

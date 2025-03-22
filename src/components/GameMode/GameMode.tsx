@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { useGame } from '../../hooks/useGame';
-import { AIDifficulty, GameMode, PlayerMark } from '../../models/game';
+
+import { useGame } from '@hooks/useGame';
+import { AIDifficulty, GameMode, PlayerMark } from '@models/game';
+
 import styles from './GameMode.module.scss';
 
 const GameModeSelector: React.FC = () => {

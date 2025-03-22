@@ -10,13 +10,6 @@ export enum AIDifficulty {
   SUPER_HARD = 'super_hard'
 }
 
-export const nameMappingDifficulty ={
-  [AIDifficulty.EASY]: 'Easy',
-  [AIDifficulty.MEDIUM]: 'Medium',
-  [AIDifficulty.HARD]: 'hard',
-  [AIDifficulty.SUPER_HARD] : 'Super hard'
-}
-
 export type GameState = {
   board: GameBoard;
   boardSize: number;

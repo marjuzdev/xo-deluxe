@@ -1,5 +1,7 @@
 import React from 'react';
-import { useGame } from '../../hooks/useGame';
+
+import { useGame } from '@hooks/useGame';
+
 import styles from './GameControls.module.scss';
 
 const GameControls: React.FC = () => {

@@ -1,4 +1,4 @@
-import { AIDifficulty, GameBoard, GameMode, GameState } from '../models/game';
+import { AIDifficulty, GameBoard, GameMode, GameState } from '@models/game';
 
 
 export const BOARD_SIZE = 3;
@@ -42,3 +42,10 @@ export const AI_THINKING_TIME = {
   [AIDifficulty.HARD]: 700,
   [AIDifficulty.SUPER_HARD]: 1000
 };
+
+export const nameMappingDifficulty ={
+  [AIDifficulty.EASY]: 'Easy',
+  [AIDifficulty.MEDIUM]: 'Medium',
+  [AIDifficulty.HARD]: 'hard',
+  [AIDifficulty.SUPER_HARD] : 'Super hard'
+}

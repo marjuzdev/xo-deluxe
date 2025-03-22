@@ -1,6 +1,6 @@
-import { AIDifficulty, GameBoard, PlayerMark } from '../../models/game';
-import { checkWinner } from '../game';
-import { getRandomInt } from '../helpers';
+import { AIDifficulty, GameBoard, PlayerMark } from '@models/game';
+import { checkWinner } from '@utils/game';
+import { getRandomInt } from '@utils/helpers';
 
 interface Move {
   row: number;
