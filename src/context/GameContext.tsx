@@ -8,8 +8,6 @@ import { checkWinner } from '@utils/game';
 
 import { GameContextProps } from './GameContext.interface';
 
-
-
 export const GameContext = createContext<GameContextProps>({} as GameContextProps);
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
